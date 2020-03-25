@@ -12,7 +12,20 @@ public class FieldPanel extends JPanel {
     }
 
     public void startNewGame(int gameMode, int fieldSizeX, int fieldSizeY, int winLength) {
+        removeAll();
         System.out.printf("damn mode: %d\nfield size: %d,\nwin length: %d\n", gameMode, fieldSizeX, winLength);
+        addGrid(fieldSizeX, fieldSizeY);
+        validate();
+        repaint();
+    }
+
+    public void addGrid(int fieldSizeX, int fieldSizeY) {
+        setLayout(new GridLayout(fieldSizeX, fieldSizeY));
+        for (int x = 0; x < fieldSizeX*fieldSizeY; x++) {
+            JLabel label = new JLabel();
+            label.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+            add(label);
+        }
     }
 }
 
