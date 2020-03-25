@@ -13,6 +13,7 @@ public class GameWindow extends JFrame {
     private static final int WIN_POSY = 250;
     private FieldPanel fieldPanel;
     private SettingsWindow settingsWindow;
+    private WinLostWindow winLostWindow;
 
     GameWindow() {
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -23,6 +24,7 @@ public class GameWindow extends JFrame {
         JButton btnStart = new JButton("Start new game");
         JButton btnStop = new JButton("<html><body><b>Exit</b></body></html>");
         settingsWindow = new SettingsWindow(this);
+        winLostWindow = new WinLostWindow(this);
         btnStop.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -34,6 +36,9 @@ public class GameWindow extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 settingsWindow.setVisible(true);
             }
+//            public void actionPerformed(ActionEvent e) {
+//                winLost.setVisible(true);
+//            }
         };
         btnStart.addActionListener(listener);
 
